@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login</title>
+  <!-- Custom CSS Link... -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/images/fav1.png">
+  <link rel="stylesheet" href="/css/login.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- FAVICON  -->
+  <link rel="icon" href="/img/images/fav1.png">
+</head>
+
+<body>
+    <header>
+      <h2 class="logo"><span>P</span>ACK <span>U</span>R <span>B</span>AGS</h2>
+    </header>
+    <div id="log" class="form-container">
+      <div class="top-btn">
+        <h1>Sign In</h1>
+      </div>
+      <!-- Error Alert -->
+      <% if(locals.errors !=null) {%>
+        <% errors.forEach(function(error) { %>
+          <div class="alert alert-danger log-alert" id="msg">
+            <strong>Error! </strong>
+            <%=error.msg%>
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          <% }); %>
+            <% } %>
+              <% if(locals.sucerrors !=null) {%>
+                <% sucerrors.forEach(function(error) { %>
+                  <div class="alert bg-success log-suc" id="msg">
+                    <strong>success! </strong>
+                    <%=error.sucmsg%>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                  </div>
+                  <% }); %>
+                    <% } %>
+                      <!-- Error Alert Ends-->
+
+                      <!-- Form Starts -->
+
+                      <form id="login" action="/users/login" method="post">
+                        <div class="box">
+                          <i class="fa fa-user" class="user-btn"></i>
+                          <input type="text" id="email" name="inname" placeholder="username"> <br>
+                        </div>
+                        <div class="box">
+                          <i class="fa fa-key" class="user-btn"></i> 
+                          <input type="password" id="pas" name="inpass" placeholder="password">
+                        </div>
+                        <br>
+                        <input type="submit" value="login now" class="login-btn"> <br> <br>
+                        <div>
+                          <!-- <input type="checkbox" id="remember"> -->
+                          <p>Don't have an account?</p>
+                          <!-- <p>forget password? <a href="#">Click here</a></p> <br> -->
+                          <a href="/register"><button type="button" class="login-btn">Sign Up</button></a>
+                          <p>Customer service: 9398717554</p>
+                        </div>
+                      </form>
+    </div>
+  <script src="/js/login.js">
+  </script>
+
+</html>

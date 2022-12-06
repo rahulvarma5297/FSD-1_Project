@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/profile.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- FAVICON  -->
+    <link rel="icon" href="/img/images/fav1.png">
+
+    <style>
+        table {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section Starts here... -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="/" class="logo"><span>P</span>ACK <span>U</span>R <span>B</span>AGS</a>
+        <nav class="navbar">
+            <a href="/admins/adminland/<%=user.email%>">Home</a>
+        </nav>
+    </header>
+    <!-- Header Section Ends here... -->
+    <section style="margin-top: 50px;">
+        <div class="ScriptTop">
+            <div class="rt-container">
+                <div class="col-rt-4" id="float-right">
+
+                    <!-- Ad Here -->
+
+                </div>
+                <div class="col-rt-2">
+                
+                </div>
+            </div>
+        </div>
+
+    
+
+        <section>
+            <div class="rt-container">
+                <div class="col-rt-12">
+                    <div class="Scriptcontent">
+
+                        <!-- Student Profile -->
+                        <div class="student-profile py-4">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card shadow-sm">
+                                            <div class="card-header bg-transparent text-center">
+                                                <img class="profile_img"
+                                                    src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                                                <h3>
+                                                    <%=user.name%>
+                                                </h3>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="card shadow-sm">
+                                            <div class="card-header bg-transparent border-0">
+                                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Information</h3>
+                                            </div>
+                                            <div class="card-body pt-0">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th width="30%">Name</th>
+                                                        <td width="2%">:</td>
+                                                        <td><%=user.name%></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="30%">Email</th>
+                                                        <td width="2%">:</td>
+                                                        <td><%=user.email%></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div style="height: 26px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- partial -->
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </section>
+
+
+
+    <%- include('footer'); %>
+        <!-- footer section ends -->
+</body>
+
+</html>

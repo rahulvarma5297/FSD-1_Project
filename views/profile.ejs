@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/profile.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <!-- FAVICON  -->
+    <link rel="icon" href="/img/images/fav1.png">
+
+    <style>
+        body {
+            background-color: whitesmoke;
+            margin-top: 100px;
+        }
+
+        .right table,.right th,.right td {
+            /* border: 2px solid rgb(16, 107, 6);
+            border-collapse: collapse; */
+            width: 400px;
+            height: 50px;
+            text-align: left;
+            font-size: 30px;
+            /* color: red; */
+        }
+
+        .right table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .right th {
+            font-size: 20px;
+        }
+
+        .right td {
+            width: 500px;
+            height: 50px;
+            font-size: 20px;
+            text-transform: none;
+        }
+
+        .bookings table,.bookings th,.bookings td {
+            border: 2px solid rgb(16, 107, 6);
+            border-collapse: collapse;
+            width: 700px;
+            height: 50px;
+            text-align: left;
+            font-size: 30px;
+            color: red;
+        }
+
+        .bookings table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bookings th {
+            font-size: 20px;
+        }
+
+        .bookings td {
+            width: 500px;
+            height: 50px;
+            font-size: 20px;
+            text-transform: none;
+        }
+
+        .bookings td:nth-child(odd),.bookings th:nth-child(even) {
+            background-color: rgb(71, 236, 248);
+        }
+
+        .bookings td:nth-child(even),.bookings th:nth-child(odd) {
+            background-color: rgba(246, 246, 122, 0.952);
+        }
+
+        .left {
+            width: 50px;
+        }
+
+        .left img{
+            margin-left: 200px;
+            width: 350px;
+            height: 350px;
+            border-radius: 100%;
+            border: 20px solid rgba(83, 80, 80, 0.202);
+        }
+
+        .right {
+            margin-top: 70px;
+            width: 50px;
+        }
+        .profile{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+        .prof-btn{
+            margin-left: 230px;
+            margin-top: 6px;
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: rgba(18, 140, 18, 0.92);
+            cursor: pointer;
+            padding-top: 8px;
+            font-weight: 800;
+            font-size: 20px;
+        }
+        .left a{
+            color: black;
+            display: inline-block;
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .right a{
+            margin-left: 30px;
+            color: black;
+            display: inline-block;
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-size: 60px;
+        }
+        a{
+            text-decoration-line: none;
+        }
+
+        .profile .left .content{
+            position: absolute;
+            display: none;
+            top: 242px;left: -2000px;
+            height: 310px;
+            width: 310px;
+            border-radius: 100%;
+            background:rgba(0, 0, 0, 0.527);
+            text-align: center;
+        }
+        
+        .profile .left:hover .content{
+            top: 242px;
+            left: 220px;
+            display: block;
+        }
+
+        .profile .left .content a{
+            color: whitesmoke;
+        }
+
+        .profile .left .content .pic-btn{
+            margin-top: 120px;
+            margin-left: 60px;
+            font-size: 20px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section Starts here... -->
+    <header>
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="/" class="logo"><span>P</span>ACK <span>U</span>R <span>B</span>AGS</a>
+        <nav class="navbar">
+            <a href="/index/index/<%=user.username%>">Home</a>
+            <a href="#fd">Feedbacks</a>
+            <a href="#footer">Contact</a>
+        </nav>
+    </header>
+    <!-- Header Section Ends here... -->
+    <h1>profile</h1>
+    <% if(locals.edit !=null) {%>
+        <% edit.forEach(function(error) { %>
+          <div class="alert bg-success log-suc" id="msg">
+            <strong>success! </strong>
+            <%=error.msg2%>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> -->
+          </div>
+        <% }); %>
+    <% } %>
+    <% if(locals.change !=null) {%>
+        <% change.forEach(function(error) { %>
+          <div class="alert bg-success log-suc" id="msg">
+            <strong>success! </strong>
+            <%=error.msg2%>
+              <!-- <button type="button" class="btn-close" data-bs-dismiss="alert"></button> -->
+          </div>
+        <% }); %>   
+    <% } %>
+    <div class="profile">
+        <div class="left">
+            <img class="profile_img" src="/img/images/profile_pic.jpeg" alt="profile picture">
+            <div class="content">
+                <a href="/profile/delete/<%=locals.user.username%>" class="pic-btn"><i class="bi bi-trash fa-3x"></i></a>
+                <a href="/profile/upload/<%=locals.user.username%>" class="pic-btn"><i class="bi bi-upload fa-3x"></i></a>
+            </div>
+            <a href="/profile/edit/<%=user.username%>" class="prof-btn">edit profile</a>
+        </div>
+        <div class="right">
+            <table>
+                <tr>
+                    <th width="10%">Name:</th>
+                    <td>
+                        <%=user.name%>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="10%">username:</th>
+                    <td>
+                        <%=user.username%>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="10%">phone number:</th>
+                    <td>
+                        <%=user.phone%>
+                    </td>
+                </tr>
+                <tr>
+                    <th width="10%">Email:</th>
+                    <td>
+                        <%=user.email%>
+                    </td>
+                </tr>
+            </table>
+            <a href="/profile/changepass/<%=user.username%>" class="prof-btn">change password</a>
+            <a href="/" class="prof-btn">logout</a>
+        </div>
+    </div>
+    
+    <section class="bookings">
+        <h1 style="color: rgb(9, 255, 0);font-size: 20px;font-family: algerian;">Your Bookings Will Appear Here...</h1>
+        <br><br>
+        <% if(locals.model !=null){%>
+            <table>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Adults</th>
+                    <th>Children</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                </tr>
+                <% for (const row of model){%>
+                    <tr>
+                        <td>
+                            <%= row.from%>
+                        </td>
+                        <td>
+                            <%= row.to%>
+                        </td>
+                        <td>
+                            <%= row.adults%>
+                        </td>
+                        <td>
+                            <%= row.children%>
+                        </td>
+                        <td>
+                            <%= row.fromdate%>
+                        </td>
+                        <td>
+                            <%= row.todate%>
+                        </td>
+                        <!-- <td>
+                            <td><a href="/profile/remove/<%= row.email%>"><button class="btn">cancel</button></a></td>
+                        </td> -->
+                    </tr>
+                    <%} %>
+            </table>
+            <%} %>
+    </section>
+
+    <section id="fd">
+        <h1>Your Feedbacks Will Appear Here...</h1>
+        <% if(locals.model !=null){%>
+            <table>
+                <% for (const row of feedmodel){%>
+                    <tr>
+                        <td>
+                            <%= row.detail%>
+                        </td>
+                    </tr>
+                    <%} %>
+            </table>
+            <%} %>
+    </section>
+
+    <%- include('footer'); %>
+        <!-- footer section ends -->
+</body>
+
+</html>
